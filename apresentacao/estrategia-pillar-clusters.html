@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brasland | Estratégia SEO Topic Clusters + Pillar Pages | Data for SEO</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --red: rgb(229, 9, 20);
+    --red-dark: rgb(180, 7, 16);
+    --red-light: rgb(255, 60, 70);
+    --gold: #c9a96e;
+    --gold-light: #f5f0e6;
+    --gold-border: #e8dcc8;
+    --gray-50: #fafafa;
+    --gray-100: #f5f5f5;
+    --gray-200: #eeeeee;
+    --gray-300: #e0e0e0;
+    --gray-400: #bdbdbd;
+    --gray-500: #9e9e9e;
+    --gray-600: #757575;
+    --gray-700: #616161;
+    --gray-800: #424242;
+    --gray-900: #212121;
+  }
+
+  body {
+    font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f8f7f4;
+    color: var(--gray-900);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #2a2a2a 100%);
+    color: #fff;
+    padding: 64px 40px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(201,169,110,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cover-content { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+  .cover-content::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .cover-content::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 28px auto 0;
+    border-radius: 1px;
+  }
+  .cover .label {
+    display: inline-block;
+    background: rgba(201,169,110,0.12);
+    border: 1px solid rgba(201,169,110,0.3);
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--gold);
+  }
+  .cover h1 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+    font-family: 'Plus Jakarta Sans', serif;
+  }
+  .cover p {
+    font-size: 17px;
+    opacity: 0.85;
+    margin-bottom: 24px;
+    font-weight: 300;
+    letter-spacing: 0.2px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 13px;
+    opacity: 0.7;
+    letter-spacing: 0.5px;
+  }
+
+  .container { max-width: 1020px; margin: -36px auto 48px; position: relative; z-index: 2; }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    margin-bottom: 28px;
+    overflow: hidden;
+    border: 1px solid var(--gray-300);
+    position: relative;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    right: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-border), var(--gold), var(--gold-border), transparent);
+    opacity: 0.6;
+  }
+  .card-body { padding: 44px 52px; }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gold-border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: -0.3px;
+    position: relative;
+  }
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 1px;
+  }
+  h2 .slide-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--red);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin: 36px 0 18px;
+    letter-spacing: -0.2px;
+  }
+  h4 { font-size: 16px; font-weight: 700; color: var(--gray-800); margin: 22px 0 12px; }
+  p { font-size: 16px; color: var(--gray-700); margin-bottom: 16px; line-height: 1.8; }
+  p:last-child { margin-bottom: 0; }
+
+  .badge {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  .badge-critico { background: #fef2f2; color: var(--red); border: 1px solid #fecaca; }
+  .badge-alto { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+  .badge-medio { background: #fefce8; color: #a16207; border: 1px solid #fef08a; }
+  .badge-baixo { background: var(--gold-light); color: #8b7a4a; border: 1px solid var(--gold-border); }
+  .badge-info { background: #f5f5f5; color: #616161; border: 1px solid #d4d4d4; }
+  .badge-ok { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+  .badge-exec { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+  .badge-pend { background: #f5f5f5; color: #6b7280; border: 1px solid #d1d5db; }
+  .badge-pilar { background: linear-gradient(135deg, #fef2f2, #fff7ed); color: var(--red); border: 1px solid #fecaca; }
+  .badge-hub { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+  .badge-cluster { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+
+  .severity { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .sev-critico { color: var(--red); }
+  .sev-alto { color: #c2410c; }
+  .sev-medio { color: #a16207; }
+  .sev-baixo { color: #8b7a4a; }
+  .sev-info { color: #616161; }
+
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; }
+  th, td { padding: 13px 14px; text-align: left; border-bottom: 1px solid var(--gray-100); vertical-align: top; }
+  th {
+    background: linear-gradient(135deg, var(--gray-50), #f8f7f4);
+    font-weight: 700;
+    color: var(--gray-700);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 2px solid var(--gold-border);
+    position: relative;
+  }
+  tr:hover td { background: #fcfaf7; }
+  tr:last-child td { border-bottom: none; }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .kpi-card {
+    background: #f2f0ec;
+    border-radius: 10px;
+    padding: 20px 12px 18px;
+    text-align: center;
+    border: 1px solid var(--gold-border);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .kpi-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 2px 12px rgba(201,169,110,0.1);
+  }
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+  }
+  .kpi-card .value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--red);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .kpi-card .label {
+    font-size: 11px;
+    color: var(--gray-600);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+  }
+  .kpi-card .sub { font-size: 11px; color: var(--gray-600); margin-top: 4px; line-height: 1.4; }
+
+  .risk-box {
+    background: linear-gradient(135deg, #fcfaf7, #f8f7f4);
+    border-left: 4px solid var(--red);
+    padding: 22px 26px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 18px;
+  }
+  .risk-box h4 { margin: 0 0 10px; color: var(--red); font-size: 16px; letter-spacing: -0.2px; }
+  .risk-box p { font-size: 15px; color: var(--gray-700); margin: 0; line-height: 1.7; }
+
+  .finding {
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 26px 30px;
+    margin-bottom: 18px;
+    background: #fcfcfc;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    border-left: 3px solid transparent;
+  }
+  .finding:hover {
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    border-color: var(--gold-border);
+    border-left-color: var(--gold);
+  }
+  .finding-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    gap: 12px;
+  }
+  .finding-title { font-weight: 700; font-size: 17px; color: var(--gray-900); letter-spacing: -0.2px; }
+  .finding-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 32px;
+    font-size: 15px;
+  }
+  .finding-grid .field { font-weight: 600; color: var(--gray-800); }
+  .finding-grid .value { color: var(--gray-700); }
+  .finding-grid .full { grid-column: 1 / -1; }
+
+  .bar-container { margin: 22px 0; }
+  .bar-row { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+  .bar-label { width: 160px; font-size: 14px; font-weight: 700; color: var(--gray-700); text-align: right; flex-shrink: 0; letter-spacing: -0.2px; }
+  .bar-track { flex: 1; height: 30px; background: var(--gray-100); border-radius: 6px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; justify-content: flex-end; padding-right: 14px; font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 0.3px; }
+  .bar-fill.red { background: linear-gradient(90deg, var(--red), var(--red-light)); }
+  .bar-fill.orange { background: linear-gradient(90deg, #c2410c, #ea580c); }
+  .bar-fill.gold { background: linear-gradient(90deg, #b8963a, #d4b96a); }
+  .bar-fill.gray { background: linear-gradient(90deg, #616161, #9e9e9e); }
+  .bar-fill.green { background: linear-gradient(90deg, #15803d, #22c55e); }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--gray-100);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 13px;
+    color: var(--red);
+  }
+
+  .glossary-row { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--gray-100); }
+  .glossary-row:last-child { border: none; }
+  .glossary-row span:last-child { font-size: 15px; color: var(--gray-700); }
+
+  .footer {
+    text-align: center;
+    padding: 36px;
+    font-size: 14px;
+    color: var(--gray-500);
+    border-top: 1px solid var(--gold-border);
+    letter-spacing: 0.3px;
+    position: relative;
+  }
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+  }
+
+  .slide-nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 18px 0 0;
+    justify-content: center;
+  }
+  .slide-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.9);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .slide-nav a:hover { background: rgba(201,169,110,0.18); border-color: var(--gold); color: #fff; }
+  .slide-nav a span { font-size: 10px; opacity: 0.7; }
+
+  .callout {
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+    color: #fff;
+    border-radius: 12px;
+    padding: 26px 28px;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .callout::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--red), var(--gold)); }
+  .callout h4 { color: var(--gold); margin: 0 0 8px; font-size: 15px; text-transform: uppercase; letter-spacing: 0.6px; }
+  .callout p { color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.7; margin: 0; }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid;
+  }
+  .pill-pilar { background: #fef2f2; color: var(--red); border-color: #fecaca; }
+  .pill-hub { background: #fffbeb; color: #92400e; border-color: #fde68a; }
+  .pill-satelite { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+  .pill-alta { background: #fef2f2; color: var(--red); border-color: #fecaca; }
+  .pill-media { background: #fffbeb; color: #92400e; border-color: #fde68a; }
+
+  .arch-diagram {
+    display: grid;
+    grid-template-columns: 1fr 120px 1fr;
+    gap: 0;
+    align-items: center;
+    margin: 22px 0;
+    text-align: center;
+  }
+  .arch-box {
+    border-radius: 12px;
+    padding: 18px 14px;
+    border: 1px solid;
+  }
+  .arch-box.pilar { background: linear-gradient(135deg, #fef2f2, #fff7ed); border-color: #fecaca; }
+  .arch-box.hub { background: linear-gradient(135deg, #fffbeb, #fef3c7); border-color: #fde68a; }
+  .arch-box.cluster { background: linear-gradient(135deg, #eff6ff, #dbeafe); border-color: #bfdbfe; }
+  .arch-arrow { font-size: 22px; color: var(--gold); font-weight: 700; }
+  .arch-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
+  .arch-title { font-size: 15px; font-weight: 800; color: var(--gray-900); }
+  .arch-desc { font-size: 12px; color: var(--gray-600); margin-top: 4px; line-height: 1.4; }
+
+  .current-task-box {
+    background: linear-gradient(135deg, #fef2f2 0%, #fffbeb 100%);
+    border: 2px solid var(--gold);
+    border-radius: 14px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .current-task-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+  }
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .task-id {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-500);
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 900px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .arch-diagram { grid-template-columns: 1fr; gap: 12px; }
+    .arch-arrow { transform: rotate(90deg); }
+  }
+  @media (max-width: 640px) {
+    .cover h1 { font-size: 26px; }
+    .cover { padding: 40px 20px 32px; }
+    .card-body { padding: 20px; }
+    .finding-grid { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    table { font-size: 12px; }
+    th, td { padding: 8px 10px; }
+  }
+
+  .card table th, .card table td { padding-left: 14px; padding-right: 14px; }
+  .card table code { font-size: 12.5px; }
+  .badge { white-space: nowrap; }
+  .pill { white-space: nowrap; }
+  .vol-sub { display:block; font-size:11px; color:var(--gray-500); font-weight:600; margin-top:2px; }
+  #clusters table code { font-size: 12px; }
+</style>
+</head>
+
+<body>
+
+<div class="cover">
+  <div class="cover-content">
+    <img src="data:image/png;base64,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" alt="Peretto" style="height:60px; width:auto; margin-bottom:28px; opacity:0.95;" onerror="this.style.display='none'">
+    <div class="label">Estratégia SEO | Data for SEO | Outubro 2026</div>
+    <h1>Brasland<br>Topic Clusters e Pillar Pages</h1>
+    <p>Estratégia + evidência: a arquitetura que transforma 2 hubs e 3 categorias em um sistema de pilares que concentra autoridade, organiza a navegação e captura intenção de compra de escavadeira Hitachi. 19 URLs publicadas, 40 keywords monitoradas e 8 clusters com destino definido.</p>
+    <div class="cover-meta">
+      <span>• Fase 1 concluída em 21/10 | Fase 2 e 3 planejadas</span>
+      <span>• 8 clusters | 4 pillars no ar | 19 URLs publicadas</span>
+      <span>• Leitura semanal | próxima varredura 28/10</span>
+    </div>
+    <div class="slide-nav">
+      <a href="#racional">01 <span>Racional</span></a>
+      <a href="#clusters">02 <span>8 Clusters</span></a>
+      <a href="#gap">03 <span>Gap de mercado</span></a>
+      <a href="#hubs">04 <span>Hubs existentes</span></a>
+      <a href="#pillars">05 <span>Pillars no ar</span></a>
+      <a href="#tabela">06 <span>Tabela estratégica</span></a>
+      <a href="#visao">07 <span>Otimizar vs Criar</span></a>
+      <a href="#malha">08 <span>Malha de links</span></a>
+      <a href="#atual">09 <span>Tarefa atual</span></a>
+      <a href="#evidencias">10 <span>Evidências</span></a>
+      <a href="#keywords">11 <span>Keywords × destino</span></a>
+      <a href="#checkin">12 <span>Check-in</span></a>
+      <a href="#plano">13 <span>Plano</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 01 RACIONAL -->
+  <div class="card" id="racional">
+    <div class="card-body">
+      <h2><span class="slide-num">01</span> O racional técnico</h2>
+      <p>A Brasland já publicou a base da arquitetura: o hub <code>/produtos/escavadeiras/</code>, o pilar de produto <code>/pecas/</code>, duas categorias pilar (manutenção e gestão) e uma categoria satélite (tecnologia). O próximo passo é consolidar esse conjunto como um sistema de <strong>pillar pages</strong>, no qual cada pilar concentra autoridade e distribui relevância para as páginas de modelo, aplicação e serviço.</p>
+
+      <div class="arch-diagram">
+        <div class="arch-box pilar">
+          <div class="arch-label" style="color:var(--red);">Pillar Page</div>
+          <div class="arch-title">Página mais ampla e definitiva</div>
+          <div class="arch-desc">Concentra autoridade no tema mãe. É o destino final de ranking para a keyword principal.</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-box hub">
+          <div class="arch-label" style="color:#92400e;">Hub Page</div>
+          <div class="arch-title">Página organizadora</div>
+          <div class="arch-desc">Distribui navegação e conecta subtemas. Atua como mapa do cluster.</div>
+        </div>
+      </div>
+      <div class="arch-diagram" style="margin-top:0;">
+        <div class="arch-box hub">
+          <div class="arch-label" style="color:#92400e;">Hub Page</div>
+          <div class="arch-title">Organiza e distribui</div>
+          <div class="arch-desc">Liga pilares a conteúdos satélite. Ex: hub de escavadeiras organiza os 4 modelos.</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-box cluster">
+          <div class="arch-label" style="color:#1e40af;">Cluster Pages</div>
+          <div class="arch-title">Páginas específicas</div>
+          <div class="arch-desc">Focadas em intenção e conversão. Capturam cauda longa e fundo de funil.</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h4>Síntese executiva da estratégia</h4>
+        <p>A arquitetura combina pilares que concentram autoridade, hubs que organizam a navegação e conteúdos satélite que capturam intenção específica. Hoje a Brasland tem 4 pillars no ar, 4 fichas de produto, 9 artigos de apoio e uma malha interna verificada. O que falta não é volume de publicação: é profundidade nos pilares, consolidação das URLs legadas e expansão para intenções de aplicação e comparação.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; margin-top:16px;">
+        <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:16px; text-align:center;">
+          <div style="font-size:28px; font-weight:800; color:#15803d;">4</div>
+          <div style="font-size:11px; font-weight:700; color:var(--gray-600); text-transform:uppercase; letter-spacing:0.5px;">Pillars no ar</div>
+          <div style="font-size:11px; color:var(--gray-600); margin-top:4px;">Hub, peças e 2 categorias</div>
+        </div>
+        <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:10px; padding:16px; text-align:center;">
+          <div style="font-size:28px; font-weight:800; color:#b45309;">8</div>
+          <div style="font-size:11px; font-weight:700; color:var(--gray-600); text-transform:uppercase; letter-spacing:0.5px;">Clusters mapeados</div>
+          <div style="font-size:11px; color:var(--gray-600); margin-top:4px;">Cobertura total de intenção</div>
+        </div>
+        <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:16px; text-align:center;">
+          <div style="font-size:28px; font-weight:800; color:#1e40af;">19</div>
+          <div style="font-size:11px; font-weight:700; color:var(--gray-600); text-transform:uppercase; letter-spacing:0.5px;">URLs publicadas</div>
+          <div style="font-size:11px; color:var(--gray-600); margin-top:4px;">Pilares, produtos e artigos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 CLUSTERS -->
+  <div class="card" id="clusters">
+    <div class="card-body">
+      <h2><span class="slide-num">02</span> Estrutura estratégica por clusters | 8 clusters</h2>
+      <p>Organização do site em torno de pilares comerciais, de marca, de produto e de aplicação. Cada cluster tem keyword principal, apoios monitorados, tipo de página, ação definida e prioridade. Volume é a soma mensal das keywords do cluster.</p>
+
+      <div style="overflow-x:auto;">
+      <table>
+        <table>
+<tr><th>Cluster</th><th>Keyword principal</th><th>Keywords de apoio</th><th>Tipo de página</th><th>Ação no site</th><th>Prioridade</th></tr>
+        <tr>
+          <td><strong>Comercial</strong><span class="vol-sub">16.130/mês</span></td>
+          <td><code>escavadeira hidráulica</code></td>
+          <td style="font-size:12px;">escavadeira a venda; escavadeira hidráulica preço; escavadeira hitachi; aluguel de escavadeira; …</td>
+          <td><span class="pill pill-satelite">Pilar</span><br><span style="font-size:11px; color:var(--gray-600);">Hub de produtos</span></td>
+          <td>Fortalecer <code>/produtos/escavadeiras/</code> como pilar comercial e ampliar profundidade</td>
+          <td><span class="badge badge-critico">Alta</span></td>
+        </tr>
+        <tr>
+          <td><strong>Marca e distribuição</strong><span class="vol-sub">4.550/mês</span></td>
+          <td><code>brasland</code></td>
+          <td style="font-size:12px;">distribuidor hitachi brasil; hitachi construction brasil; brasif máquinas</td>
+          <td><span class="pill pill-satelite">Pilar</span><br><span style="font-size:11px; color:var(--gray-600);">Home + institucional</span></td>
+          <td>Consolidar home como página de marca e distribuição Hitachi</td>
+          <td><span class="badge badge-critico">Alta</span></td>
+        </tr>
+        <tr>
+          <td><strong>Peças originais</strong><span class="vol-sub">560/mês</span></td>
+          <td><code>peças para escavadeira</code></td>
+          <td style="font-size:12px;">peças originais hitachi; esteira escavadeira; dente para escavadeira; filtro escavadeira hitachi; …</td>
+          <td><span class="pill pill-satelite">Pilar</span><br><span style="font-size:11px; color:var(--gray-600);">Pilar + produto</span></td>
+          <td>Consolidar <code>/pecas/</code> e criar páginas por família de peça</td>
+          <td><span class="badge badge-critico">Alta</span></td>
+        </tr>
+        <tr>
+          <td><strong>Tonelagem</strong><span class="vol-sub">240/mês</span></td>
+          <td><code>escavadeira 20 toneladas</code></td>
+          <td style="font-size:12px;">escavadeira 13 toneladas; 35 toneladas; 50 toneladas</td>
+          <td><span class="pill pill-satelite">Produto</span><br><span style="font-size:11px; color:var(--gray-600);">Fichas de modelo</span></td>
+          <td>Conectar tonelagem às 4 fichas ZX e criar âncoras de comparativo</td>
+          <td><span class="badge badge-medio">Média</span></td>
+        </tr>
+        <tr>
+          <td><strong>Aplicação</strong><span class="vol-sub">180/mês</span></td>
+          <td><code>escavadeira para mineração</code></td>
+          <td style="font-size:12px;">terraplanagem; construção civil; hidráulica construção; infraestrutura</td>
+          <td><span class="pill pill-satelite">Cluster</span><br><span style="font-size:11px; color:var(--gray-600);">Landing por aplicação</span></td>
+          <td>Criar páginas por vertical de uso</td>
+          <td><span class="badge badge-medio">Média</span></td>
+        </tr>
+        <tr>
+          <td><strong>Modelo</strong><span class="vol-sub">40/mês</span></td>
+          <td><code>zx490</code></td>
+          <td style="font-size:12px;">zx130; zx210; zx350; zx490</td>
+          <td><span class="pill pill-satelite">Produto</span><br><span style="font-size:11px; color:var(--gray-600);">Ficha técnica</span></td>
+          <td>Otimizar as 4 fichas e corrigir a URL legada do ZX490</td>
+          <td><span class="badge badge-critico">Alta</span></td>
+        </tr>
+        <tr>
+          <td><strong>Serviço</strong><span class="vol-sub">0/mês</span></td>
+          <td><code>manutenção escavadeira hitachi</code></td>
+          <td style="font-size:12px;">manutenção preventiva; plano de manutenção; pmp hitachi; telemetria</td>
+          <td><span class="pill pill-satelite">Serviço</span><br><span style="font-size:11px; color:var(--gray-600);">Comercial + conteúdo</span></td>
+          <td>Reforçar <code>/servicos/</code> e criar página de PMP</td>
+          <td><span class="badge badge-medio">Média</span></td>
+        </tr>
+        <tr>
+          <td><strong>Comparativo</strong><span class="vol-sub">0/mês</span></td>
+          <td><code>qual escavadeira comprar</code></td>
+          <td style="font-size:12px;">caterpillar vs hitachi; nova ou usada</td>
+          <td><span class="pill pill-satelite">Conteúdo</span><br><span style="font-size:11px; color:var(--gray-600);">Blog / decisão</span></td>
+          <td>Criar artigos de decisão no cluster de gestão</td>
+          <td><span class="badge badge-baixo">Baixa</span></td>
+        </tr>
+      </table>
+      </div>
+
+      <h3>Leitura executiva da estratégia</h3>
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px;">
+        <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border:1px solid #bbf7d0; border-radius:10px; padding:18px;">
+          <div style="font-size:12px; font-weight:700; color:#15803d; text-transform:uppercase; letter-spacing:0.5px;">O que manter e fortalecer</div>
+          <ul style="margin-top:8px; font-size:13px; color:var(--gray-700); padding-left:16px; line-height:1.6;">
+            <li>Hub <code>/produtos/escavadeiras/</code> como pilar comercial</li>
+            <li><code>/pecas/</code> como pilar de produto</li>
+            <li>4 fichas de modelo como satélites do hub</li>
+            <li>Artigos de manutenção e gestão como autoridade</li>
+          </ul>
+        </div>
+        <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); border:1px solid #fde68a; border-radius:10px; padding:18px;">
+          <div style="font-size:12px; font-weight:700; color:#92400e; text-transform:uppercase; letter-spacing:0.5px;">O que consolidar</div>
+          <ul style="margin-top:8px; font-size:13px; color:var(--gray-700); padding-left:16px; line-height:1.6;">
+            <li>2 posições que hoje apontam para URL legada <code>/insights/escavadeiras/</code></li>
+            <li>Profundidade do hub e das fichas de produto</li>
+            <li>Âncoras de tonelagem dentro das fichas ZX</li>
+          </ul>
+        </div>
+        <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); border:1px solid #bfdbfe; border-radius:10px; padding:18px;">
+          <div style="font-size:12px; font-weight:700; color:#1e40af; text-transform:uppercase; letter-spacing:0.5px;">O que criar</div>
+          <ul style="margin-top:8px; font-size:13px; color:var(--gray-700); padding-left:16px; line-height:1.6;">
+            <li>Landings por aplicação: mineração, terraplanagem, infraestrutura</li>
+            <li>Página de PMP e telemetria</li>
+            <li>Comparativos de decisão</li>
+            <li>Páginas por família de peça</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 GAP -->
+  <div class="card" id="gap">
+    <div class="card-body">
+      <h2><span class="slide-num">03</span> Gap de mercado | onde a demanda está e quem ocupa</h2>
+      <p>Leitura Data for SEO das 40 keywords monitoradas. Volume, CPC, SD (SEO Difficulty), posição atual da Brasland e os domínios que ocupam as cinco primeiras posições orgânicas.</p>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="value">40</div>
+          <div class="label">Keywords</div>
+          <div class="sub">leitura semanal</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">21,7 mil</div>
+          <div class="label">Volume / mês</div>
+          <div class="sub">17,3 mil endereçável</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">4</div>
+          <div class="label">Ranqueando</div>
+          <div class="sub">1 no top 3 · 2 no top 10</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">0,51%</div>
+          <div class="label">Share of voice</div>
+          <div class="sub">posição média 27,5</div>
+        </div>
+      </div>
+
+      <div style="overflow-x:auto;">
+      <table>
+        <tr><th>Keyword</th><th>Volume</th><th>CPC</th><th>SD</th><th>Posição Brasland</th><th>Quem ocupa as 5 primeiras</th></tr>
+        <tr><td><code>escavadeira hidráulica</code></td><td>14.800</td><td>3,87</td><td>16</td><td><span class="badge badge-pend">fora do top 100</span></td><td style="font-size:12px;">olx.com.br · mercadolivre.com.br · deere.com.br · trucadao.com.br · vrental.com.br</td></tr>
+        <tr><td><code>escavadeira a venda</code></td><td>480</td><td>3,52</td><td>15</td><td><span class="badge badge-pend">fora do top 100</span></td><td style="font-size:12px;">trucadao.com.br · olx.com.br · mercadolivre.com.br · mercadomaquinas.com.br</td></tr>
+        <tr><td><code>aluguel de escavadeira</code></td><td>390</td><td>12,17</td><td>11</td><td><span class="badge badge-pend">fora do top 100</span></td><td style="font-size:12px;">olx.com.br · facebook.com · mills.com.br · degraus.com.br</td></tr>
+        <tr><td><code>escavadeira hidráulica preço</code></td><td>260</td><td>1,05</td><td>17</td><td><span class="badge badge-exec">#11</span></td><td style="font-size:12px;">olx.com.br · mercadolivre.com.br · trucadao.com.br · agrofy.com.br</td></tr>
+        <tr><td><code>peças para escavadeira</code></td><td>210</td><td>6,64</td><td>19</td><td><span class="badge badge-pend">fora do top 100</span></td><td style="font-size:12px;">escavapecas.com.br · tratoraco.com.br · jnl.com.br · gamape.com.br</td></tr>
+        <tr><td><code>esteira escavadeira</code></td><td>210</td><td>2,82</td><td>19</td><td><span class="badge badge-pend">fora do top 100</span></td><td style="font-size:12px;">marketplaces e lojas de peças</td></tr>
+        <tr><td><code>escavadeira hitachi</code></td><td>170</td><td>6,79</td><td>14</td><td><span class="badge badge-pend">fora do top 100</span></td><td style="font-size:12px;">lexicarbrasil.com.br · popagro.com.br · hitachicm.com · trucadao.com.br</td></tr>
+        <tr><td><code>dente para escavadeira</code></td><td>140</td><td>4,47</td><td>44</td><td><span class="badge badge-pend">fora do top 100</span></td><td style="font-size:12px;">lojas especializadas em peças de desgaste</td></tr>
+        <tr><td><code>escavadeira para mineração</code></td><td>110</td><td>2,04</td><td>16</td><td><span class="badge badge-pend">fora do top 100</span></td><td style="font-size:12px;">cat.com · armac.com.br · xcmg-america.com</td></tr>
+      </table>
+      </div>
+
+      <h3>Benchmark de domínios</h3>
+      <div style="overflow-x:auto;">
+      <table>
+        <tr><th>Domínio</th><th>DA</th><th>Keywords orgânicas</th><th>Tráfego orgânico / mês</th><th>Backlinks</th><th>Ref. domains</th></tr>
+        <tr><td><code>cat.com</code></td><td>68</td><td>162.085</td><td>1.557.440</td><td>10.271.077</td><td>31.337</td></tr>
+        <tr><td><code>volvoce.com</code></td><td>60</td><td>34.765</td><td>134.908</td><td>440.674</td><td>11.685</td></tr>
+        <tr><td><code>casece.com</code></td><td>50</td><td>34.147</td><td>53.529</td><td>1.168.191</td><td>6.141</td></tr>
+        <tr><td><code>deere.com.br</code></td><td>51</td><td>8.017</td><td>107.627</td><td>252.187</td><td>2.448</td></tr>
+        <tr><td><code>komatsu.com.br</code></td><td>35</td><td>245</td><td>10.725</td><td>1.948</td><td>310</td></tr>
+        <tr style="background:#fcfaf7;"><td><strong>brasland.com.br</strong></td><td><strong>11</strong></td><td><strong>0</strong></td><td><strong>0</strong></td><td><strong>88</strong></td><td><strong>61</strong></td></tr>
+      </table>
+      </div>
+
+      <h3>O que o gap mostra</h3>
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px;">
+        <div style="background: linear-gradient(135deg, #fef2f2, #fff7ed); border:1px solid #fecaca; border-radius:10px; padding:18px;">
+          <div style="font-size:12px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:0.5px;">Demanda comercial concentrada</div>
+          <p style="font-size:13px; margin-top:8px; color:var(--gray-700);">Só <em>escavadeira hidráulica</em> soma 14.800 buscas/mês e a SERP é dominada por marketplaces, não por distribuidores. Há espaço para um pilar de produto com proposta técnica e comercial clara.</p>
+          <div style="margin-top:10px;"><span class="badge badge-critico">Maior oportunidade</span></div>
+        </div>
+        <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); border:1px solid #bfdbfe; border-radius:10px; padding:18px;">
+          <div style="font-size:12px; font-weight:700; color:#1e40af; text-transform:uppercase; letter-spacing:0.5px;">Baixa barreira de entrada</div>
+          <p style="font-size:13px; margin-top:8px; color:var(--gray-700);">As keywords de maior volume têm SD entre 11 e 19. A dificuldade não está na autoridade exigida, está na ausência de página dedicada e de profundidade suficiente para competir.</p>
+          <div style="margin-top:10px;"><span class="badge badge-info">SD 11–19</span></div>
+        </div>
+        <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); border:1px solid #fde68a; border-radius:10px; padding:18px;">
+          <div style="font-size:12px; font-weight:700; color:#92400e; text-transform:uppercase; letter-spacing:0.5px;">Autoridade ainda imatura</div>
+          <p style="font-size:13px; margin-top:8px; color:var(--gray-700);">DA 11 com 88 backlinks e 61 domínios de referência. O caminho é vencer primeiro as caudas de menor concorrência e usar o conteúdo para construir autoridade temática antes das head terms.</p>
+          <div style="margin-top:10px;"><span class="badge badge-medio">DA 11</span></div>
+        </div>
+      </div>
+
+      <div class="risk-box" style="border-left-color: var(--gold);">
+        <h4 style="color:#8b7a4a;">Interpretação prática</h4>
+        <p>O gap não é de demanda, é de cobertura. As 40 keywords monitoradas somam 21,7 mil buscas mensais e a Brasland aparece em apenas 4. A prioridade é consolidar os pilares que já existem, corrigir as URLs legadas que ainda capturam posição e só então abrir novas frentes de aplicação e comparação.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 HUBS -->
+  <div class="card" id="hubs">
+    <div class="card-body">
+      <h2><span class="slide-num">04</span> Diagnóstico dos hubs existentes</h2>
+      <p>Os quatro pilares publicados foram estruturados e conectados. Abaixo o papel estratégico de cada um, o que foi feito e o link para abrir e conferir.</p>
+
+      <div class="finding" style="border-left-color: var(--gold);">
+        <div class="finding-header">
+          <div><span class="finding-title">A: <a href="https://brasland.com.br/produtos/escavadeiras/">/produtos/escavadeiras/</a></span> <span class="pill pill-hub" style="margin-left:8px;">Hub comercial</span></div>
+          <span class="badge badge-ok">No ar</span>
+        </div>
+        <div class="finding-grid">
+          <div class="field">Papel estratégico</div><div class="value">Pilar comercial do cluster de escavadeiras. Concentra a intenção de compra e distribui autoridade para as 4 fichas de modelo.</div>
+          <div class="field">O que foi feito</div><div class="value">Comparativo dos 4 modelos, 8 FAQs, links para peças, serviços e artigos de decisão. 1.338 palavras.</div>
+          <div class="field">Evidência</div><div class="value">Publicado e indexado; conectado aos 4 modelos e a 3 categorias.</div>
+          <div class="field">Próximo passo</div><div class="value">Ampliar profundidade para a faixa de 2.000–2.400 palavras e adicionar âncoras de tonelagem.</div>
+        </div>
+      </div>
+
+      <div class="finding" style="border-left-color: var(--gold);">
+        <div class="finding-header">
+          <div><span class="finding-title">B: <a href="https://brasland.com.br/pecas/">/pecas/</a></span> <span class="pill pill-pilar" style="margin-left:8px;">Pilar de produto</span></div>
+          <span class="badge badge-ok">#10</span>
+        </div>
+        <div class="finding-grid">
+          <div class="field">Papel estratégico</div><div class="value">Pilar do cluster de peças originais. Captura intenção comercial de reposição e desgaste.</div>
+          <div class="field">O que foi feito</div><div class="value">Tabela de inspeção, 7 FAQs, links para manutenção e serviços. Cerca de 1.500 palavras.</div>
+          <div class="field">Evidência</div><div class="value">Já aparece em 10ª posição para <code>peças originais hitachi</code>.</div>
+          <div class="field">Próximo passo</div><div class="value">Criar páginas por família: esteira, dente, filtro e material rodante.</div>
+        </div>
+      </div>
+
+      <div class="finding" style="border-left-color: var(--gold);">
+        <div class="finding-header">
+          <div><span class="finding-title">C: <a href="https://brasland.com.br/insights/category/manutencao/">/insights/category/manutencao/</a></span> <span class="pill pill-cluster" style="margin-left:8px;">Pilar de conteúdo</span></div>
+          <span class="badge badge-ok">No ar</span>
+        </div>
+        <div class="finding-grid">
+          <div class="field">Papel estratégico</div><div class="value">Organiza o cluster de manutenção e conecta 5 artigos satélite.</div>
+          <div class="field">O que foi feito</div><div class="value">H1 de cluster, introdução, 6 FAQs e malha para horímetro, 5 sinais, material rodante, máquina parada e suporte técnico. Cerca de 800 palavras.</div>
+          <div class="field">Evidência</div><div class="value">Categoria lista os 5 artigos e responde às dúvidas de entrada do cluster.</div>
+          <div class="field">Próximo passo</div><div class="value">Expandir a introdução e incluir bloco de diagnóstico por sintoma.</div>
+        </div>
+      </div>
+
+      <div class="finding" style="border-left-color: var(--gold);">
+        <div class="finding-header">
+          <div><span class="finding-title">D: <a href="https://brasland.com.br/insights/category/gestao/">/insights/category/gestao/</a></span> <span class="pill pill-cluster" style="margin-left:8px;">Pilar de conteúdo</span></div>
+          <span class="badge badge-ok">No ar</span>
+        </div>
+        <div class="finding-grid">
+          <div class="field">Papel estratégico</div><div class="value">Organiza o cluster de gestão de frota e sustenta a decisão de compra.</div>
+          <div class="field">O que foi feito</div><div class="value">H1, introdução, 6 FAQs e links para custo hora, comprar ou alugar e indicadores. Cerca de 700 palavras.</div>
+          <div class="field">Evidência</div><div class="value">Categoria lista os 3 artigos e conecta ao hub de produtos e a serviços.</div>
+          <div class="field">Próximo passo</div><div class="value">Adicionar comparativos de decisão e bloco de TCO.</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h4>Leitura dos quatro pilares</h4>
+        <p>Os pilares existem, estão indexados e já têm malha interna. O gargalo é profundidade: os blocos de página ficaram entre 30% e 45% abaixo da faixa planejada. A Fase 2 ataca exatamente isso, começando pelo hub e pelas fichas de produto.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 PILLARS -->
+  <div class="card" id="pillars">
+    <div class="card-body">
+      <h2><span class="slide-num">05</span> As páginas no ar | estratégia + evidência</h2>
+      <p>Nove páginas estruturais publicadas, com função definida dentro da arquitetura e link direto para verificação.</p>
+
+      <div style="overflow-x:auto;">
+      <table>
+        <tr><th>Página</th><th>Função</th><th>Palavras</th><th>Sinal de estrutura</th><th>Status</th></tr>
+        <tr><td><a href="https://brasland.com.br/produtos/escavadeiras/"><code>/produtos/escavadeiras/</code></a></td><td>Hub comercial</td><td>1.338</td><td>4 modelos + 8 FAQs</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><a href="https://brasland.com.br/produtos/escavadeiras/zx130-5a/"><code>/produtos/escavadeiras/zx130-5a/</code></a></td><td>Ficha ZX130</td><td>1.352</td><td>Ficha + 8 FAQs</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><a href="https://brasland.com.br/produtos/escavadeiras/zx210lc-5a/"><code>/produtos/escavadeiras/zx210lc-5a/</code></a></td><td>Ficha ZX210</td><td>1.532</td><td>Ficha + 8 FAQs</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><a href="https://brasland.com.br/produtos/escavadeiras/zx350lch-5a/"><code>/produtos/escavadeiras/zx350lch-5a/</code></a></td><td>Ficha ZX350</td><td>~1.350</td><td>Ficha + 8 FAQs</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><a href="https://brasland.com.br/produtos/escavadeiras/zx490lch-5a/"><code>/produtos/escavadeiras/zx490lch-5a/</code></a></td><td>Ficha ZX490</td><td>~1.350</td><td>Ficha + 8 FAQs</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><a href="https://brasland.com.br/pecas/"><code>/pecas/</code></a></td><td>Pilar de peças</td><td>~1.500</td><td>7 FAQs + tabela</td><td><span class="badge badge-ok">#10</span></td></tr>
+        <tr><td><a href="https://brasland.com.br/servicos/"><code>/servicos/</code></a></td><td>Conversão</td><td>~1.300</td><td>7 FAQs + escopo e fluxo</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><a href="https://brasland.com.br/insights/category/manutencao/"><code>/insights/category/manutencao/</code></a></td><td>Manutenção</td><td>~800</td><td>6 FAQs + 5 artigos</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><a href="https://brasland.com.br/insights/category/gestao/"><code>/insights/category/gestao/</code></a></td><td>Gestão</td><td>~700</td><td>6 FAQs + 3 artigos</td><td><span class="badge badge-ok">No ar</span></td></tr>
+      </table>
+      </div>
+
+      <div class="risk-box">
+        <h4>O que a evidência prova</h4>
+        <p>A arquitetura está publicada e navegável, mas ainda opera abaixo da profundidade planejada. O ganho rápido não vem de publicar mais páginas: vem de completar as que já ranqueiam e de consolidar as URLs que o buscador ainda associa ao endereço antigo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 TABELA -->
+  <div class="card" id="tabela">
+    <div class="card-body">
+      <h2><span class="slide-num">06</span> Tabela estratégica | volume, intenção e cobertura</h2>
+      <p>Cada cluster tem uma keyword principal, um destino no site e um estado de cobertura. 4 das 40 keywords já aparecem no top 100; as demais são lacuna de página ou de profundidade.</p>
+
+      <div style="overflow-x:auto;">
+      <table>
+        <tr><th>Cluster</th><th>Keyword principal</th><th>Volume</th><th>SD</th><th>Intenção</th><th>Destino</th><th>Cobertura</th></tr>
+        <tr><td><strong>Comercial</strong></td><td><code>escavadeira hidráulica</code></td><td>16.130</td><td>16</td><td>Transacional</td><td><code>/produtos/escavadeiras/</code></td><td><span class="badge badge-critico">0 de 8</span></td></tr>
+        <tr><td><strong>Marca</strong></td><td><code>brasland</code></td><td>4.550</td><td>29</td><td>Navegacional</td><td><code>/</code></td><td><span class="badge badge-ok">#2</span></td></tr>
+        <tr><td><strong>Peças</strong></td><td><code>peças para escavadeira</code></td><td>560</td><td>19</td><td>Comercial</td><td><code>/pecas/</code></td><td><span class="badge badge-exec">1 de 7</span></td></tr>
+        <tr><td><strong>Tonelagem</strong></td><td><code>escavadeira 20 toneladas</code></td><td>240</td><td>24</td><td>Comercial</td><td>fichas ZX</td><td><span class="badge badge-critico">0 de 4</span></td></tr>
+        <tr><td><strong>Aplicação</strong></td><td><code>escavadeira para mineração</code></td><td>180</td><td>16</td><td>Comercial</td><td>landing a criar</td><td><span class="badge badge-critico">0 de 5</span></td></tr>
+        <tr><td><strong>Modelo</strong></td><td><code>zx490</code></td><td>40</td><td>31</td><td>Navegacional</td><td>ficha ZX490</td><td><span class="badge badge-exec">1 de 4</span></td></tr>
+        <tr><td><strong>Serviço</strong></td><td><code>manutenção escavadeira hitachi</code></td><td>0</td><td>12</td><td>Comercial</td><td><code>/servicos/</code></td><td><span class="badge badge-critico">0 de 5</span></td></tr>
+        <tr><td><strong>Comparativo</strong></td><td><code>qual escavadeira comprar</code></td><td>0</td><td>12</td><td>Informacional</td><td>artigo a criar</td><td><span class="badge badge-critico">0 de 3</span></td></tr>
+      </table>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:8px;">
+        <div style="background: linear-gradient(135deg, #fcfaf7, #f8f7f4); border:1px solid var(--gold-border); border-radius:10px; padding:18px;">
+          <div style="font-size:12px; font-weight:700; color:#8b7a4a; text-transform:uppercase; letter-spacing:0.5px;">Onde o volume está</div>
+          <p style="font-size:13px; margin-top:8px; color:var(--gray-700);">74% do volume monitorado está no cluster comercial. É o pilar com maior retorno potencial e o que mais exige profundidade.</p>
+        </div>
+        <div style="background: linear-gradient(135deg, #fcfaf7, #f8f7f4); border:1px solid var(--gold-border); border-radius:10px; padding:18px;">
+          <div style="font-size:12px; font-weight:700; color:#8b7a4a; text-transform:uppercase; letter-spacing:0.5px;">Onde a cobertura já existe</div>
+          <p style="font-size:13px; margin-top:8px; color:var(--gray-700);">Marca e peças já convertem posição. O trabalho é defender o que existe e replicar o padrão nos demais clusters.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 VISAO -->
+  <div class="card" id="visao">
+    <div class="card-body">
+      <h2><span class="slide-num">07</span> Visão separada | otimizações vs novas criações</h2>
+
+      <h3>A) Páginas existentes para otimizar</h3>
+      <div style="overflow-x:auto;">
+      <table>
+        <tr><th>Página</th><th>O que já existe</th><th>Otimização prioritária</th><th>Impacto</th></tr>
+        <tr><td><code>/produtos/escavadeiras/</code></td><td>Comparativo, 8 FAQs, links</td><td>Profundidade de 1.338 para 2.000+ e âncoras de tonelagem</td><td><span class="badge badge-critico">Alto</span></td></tr>
+        <tr><td>Fichas ZX130 / ZX210 / ZX350</td><td>Ficha técnica, 8 FAQs</td><td>Bloco de aplicação, comparativo entre modelos e CTA de orçamento</td><td><span class="badge badge-alto">Médio-alto</span></td></tr>
+        <tr><td><code>/produtos/escavadeiras/zx490lch-5a/</code></td><td>Ficha completa</td><td>Consolidar a URL canônica e remover a versão legada da SERP</td><td><span class="badge badge-critico">Alto</span></td></tr>
+        <tr><td><code>/pecas/</code></td><td>1.500 palavras, 7 FAQs</td><td>Blocos por família de peça e links para artigos de desgaste</td><td><span class="badge badge-alto">Médio-alto</span></td></tr>
+        <tr><td>Categorias de manutenção e gestão</td><td>H1, intro, 6 FAQs</td><td>Expandir introdução e adicionar diagnóstico por sintoma</td><td><span class="badge badge-medio">Médio</span></td></tr>
+      </table>
+      </div>
+
+      <h3>B) Páginas novas a criar</h3>
+      <div style="overflow-x:auto;">
+      <table>
+        <tr><th>Página</th><th>Cluster</th><th>Intenção</th><th>Base de apoio</th><th>Prioridade</th></tr>
+        <tr><td>Aplicação: mineração</td><td>Aplicação</td><td>Comercial</td><td>Hub + ficha ZX490</td><td><span class="badge badge-critico">Alta</span></td></tr>
+        <tr><td>Aplicação: terraplanagem e infraestrutura</td><td>Aplicação</td><td>Comercial</td><td>Hub + fichas ZX210/350</td><td><span class="badge badge-alto">Média-alta</span></td></tr>
+        <tr><td>PMP Hitachi e telemetria</td><td>Serviço</td><td>Comercial</td><td><code>/servicos/</code> + manutenção</td><td><span class="badge badge-alto">Média-alta</span></td></tr>
+        <tr><td>Comparativo Caterpillar vs Hitachi</td><td>Comparativo</td><td>Informacional</td><td>Fichas + cluster de gestão</td><td><span class="badge badge-medio">Média</span></td></tr>
+        <tr><td>Nova ou usada / qual comprar</td><td>Comparativo</td><td>Decisão</td><td>Cluster de gestão</td><td><span class="badge badge-medio">Média</span></td></tr>
+        <tr><td>Famílias de peça: esteira, dente, filtro</td><td>Peças</td><td>Comercial</td><td><code>/pecas/</code> + material rodante</td><td><span class="badge badge-critico">Alta</span></td></tr>
+      </table>
+      </div>
+
+      <div class="risk-box" style="border-left-color: var(--gold);">
+        <h4 style="color:#8b7a4a;">Regra de sequenciamento</h4>
+        <p>Primeiro otimizar o que já tem URL, indexação e sinal de posição. Criar página nova só quando a intenção não tiver destino claro no site. Isso evita canibalização e concentra autoridade nos pilares antes de abrir novas frentes.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 MALHA -->
+  <div class="card" id="malha">
+    <div class="card-body">
+      <h2><span class="slide-num">08</span> Malha de links internos que existe</h2>
+      <p>Regra aplicada: âncora com keyword, nunca "clique aqui". Cada artigo aponta para 1 pilar, 2 irmãos e 1 página comercial. 20 URLs internas testadas em produção, zero quebradas.</p>
+
+      <div class="finding" style="border-left-color:#1e40af;">
+        <div class="finding-header">
+          <div><span class="finding-title">Hub <code>/produtos/escavadeiras/</code></span> <span class="pill pill-pilar" style="margin-left:8px;">Pilar</span></div>
+          <span class="badge badge-ok">20/20 links OK</span>
+        </div>
+        <div class="finding-grid">
+          <div class="field">Aponta para</div><div class="value">4 modelos, <code>/pecas/</code>, <code>/servicos/</code>, comprar ou alugar, custo hora e 3 categorias.</div>
+          <div class="field">Recebe de</div><div class="value">Fichas de produto, artigos de gestão e navegação principal.</div>
+          <div class="field">Função</div><div class="value">Concentrar autoridade comercial e distribuir para produto e conteúdo.</div>
+          <div class="field">Pendência</div><div class="value">Adicionar links para as futuras landings de aplicação.</div>
+        </div>
+      </div>
+
+      <div class="finding" style="border-left-color:#1e40af;">
+        <div class="finding-header">
+          <div><span class="finding-title">Fichas de produto</span> <span class="pill pill-satelite" style="margin-left:8px;">Satélites</span></div>
+          <span class="badge badge-ok">4 fichas</span>
+        </div>
+        <div class="finding-grid">
+          <div class="field">Cada ficha aponta para</div><div class="value">Hub, 2 modelos irmãos, 1 artigo do cluster, <code>/pecas/</code> e <code>/servicos/</code>.</div>
+          <div class="field">Função</div><div class="value">Capturar intenção de modelo e tonelagem sem competir com o hub.</div>
+          <div class="field">Anti-canibalização</div><div class="value">Hub trata comparação e escolha; ficha trata especificação do modelo.</div>
+          <div class="field">Pendência</div><div class="value">Links explícitos para tonelagem e aplicação.</div>
+        </div>
+      </div>
+
+      <div class="finding" style="border-left-color:#1e40af;">
+        <div class="finding-header">
+          <div><span class="finding-title">Clusters de manutenção e gestão</span> <span class="pill pill-cluster" style="margin-left:8px;">Conteúdo</span></div>
+          <span class="badge badge-ok">8 artigos</span>
+        </div>
+        <div class="finding-grid">
+          <div class="field">Manutenção</div><div class="value">Horímetro → 5 sinais, material rodante, máquina parada, custo hora e categoria.</div>
+          <div class="field">Gestão</div><div class="value">Custo hora → indicadores, máquina parada e comprar ou alugar.</div>
+          <div class="field">Satélite</div><div class="value">ROPS/FOPS → 5 sinais, material rodante, categoria e serviços.</div>
+          <div class="field">Função</div><div class="value">Construir autoridade temática e levar tráfego informacional para peças e serviços.</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h4>Regra de ouro da malha</h4>
+        <p>Toda página nova nasce com destino definido: 1 link para o pilar, 2 para irmãos e 1 para página comercial. Nenhuma página órfã. A malha é revisada a cada ciclo de publicação.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09 ATUAL -->
+  <div class="card" id="atual">
+    <div class="card-body">
+      <h2><span class="slide-num">09</span> Tarefa atual em destaque | Onde estamos agora</h2>
+
+      <div class="current-task-box">
+        <div class="task-header">
+          <div>
+            <div class="task-id">FASE 2 · CONSOLIDAÇÃO</div>
+            <div style="font-size:20px; font-weight:800; color:var(--gray-900); margin-top:4px;">Consolidar URLs legadas e elevar profundidade dos pilares</div>
+          </div>
+          <span class="badge badge-exec">Em execução</span>
+        </div>
+        <p style="font-size:15px; color:var(--gray-700); margin-bottom:16px;">A leitura de 21/10 mostrou que 2 das 4 posições conquistadas ainda apontam para o endereço antigo <code>/insights/escavadeiras/</code>. Antes de ampliar a arquitetura, é preciso fazer o buscador consolidar a URL definitiva e reforçar a profundidade do hub e das fichas.</p>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+          <div style="background:#fff; border:1px solid var(--gold-border); border-radius:8px; padding:14px;">
+            <div style="font-size:11px; font-weight:700; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.5px;">Ação 1</div>
+            <div style="font-size:14px; color:var(--gray-800); margin-top:4px;">301 das URLs legadas para as fichas canônicas e revalidação em 14 dias.</div>
+          </div>
+          <div style="background:#fff; border:1px solid var(--gold-border); border-radius:8px; padding:14px;">
+            <div style="font-size:11px; font-weight:700; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.5px;">Ação 2</div>
+            <div style="font-size:14px; color:var(--gray-800); margin-top:4px;">Expandir hub de escavadeiras para 2.000+ palavras com âncoras de tonelagem.</div>
+          </div>
+          <div style="background:#fff; border:1px solid var(--gold-border); border-radius:8px; padding:14px;">
+            <div style="font-size:11px; font-weight:700; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.5px;">Ação 3</div>
+            <div style="font-size:14px; color:var(--gray-800); margin-top:4px;">Core Web Vitals no mobile e revisão de schema de produto.</div>
+          </div>
+          <div style="background:#fff; border:1px solid var(--gold-border); border-radius:8px; padding:14px;">
+            <div style="font-size:11px; font-weight:700; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.5px;">Ação 4</div>
+            <div style="font-size:14px; color:var(--gray-800); margin-top:4px;">Nova leitura de posições em 28/10 para medir o efeito das correções.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpi-grid" style="margin-top:24px;">
+        <div class="kpi-card">
+          <div class="value">2</div>
+          <div class="label">URLs legadas</div>
+          <div class="sub">ainda na SERP</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">4</div>
+          <div class="label">Posições ativas</div>
+          <div class="sub">de 40 keywords</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">28/10</div>
+          <div class="label">Próxima leitura</div>
+          <div class="sub">varredura semanal</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">0</div>
+          <div class="label">Links quebrados</div>
+          <div class="sub">20 URLs testadas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 EVIDENCIAS -->
+  <div class="card" id="evidencias">
+    <div class="card-body">
+      <h2><span class="slide-num">10</span> Evidências no ar | 19 URLs publicadas</h2>
+      <p>Todo o conteúdo da Fase 1 está publicado e validado em produção. A tabela abaixo é a prova de execução, com palavras e função de cada URL.</p>
+
+      <div style="overflow-x:auto;">
+      <table>
+        <tr><th>URL</th><th>Palavras</th><th>Função</th><th>Status</th></tr>
+        <tr><td><code>/produtos/escavadeiras/</code></td><td>1.338</td><td>Hub / pilar comercial</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/produtos/escavadeiras/zx130-5a/</code></td><td>1.352</td><td>Ficha de modelo</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/produtos/escavadeiras/zx210lc-5a/</code></td><td>1.532</td><td>Ficha de modelo</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/produtos/escavadeiras/zx350lch-5a/</code></td><td>~1.350</td><td>Ficha de modelo</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/produtos/escavadeiras/zx490lch-5a/</code></td><td>~1.350</td><td>Ficha de modelo</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/pecas/</code></td><td>~1.500</td><td>Pilar de peças</td><td><span class="badge badge-ok">#10</span></td></tr>
+        <tr><td><code>/servicos/</code></td><td>~1.300</td><td>Conversão comercial</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/insights/category/manutencao/</code></td><td>~800</td><td>Pilar de manutenção</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/insights/category/gestao/</code></td><td>~700</td><td>Pilar de gestão</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/insights/category/tecnologia/</code></td><td>~600</td><td>Satélite de segurança</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/insights/manutencao-preventiva-escavadeira-por-horimetro/</code></td><td>1.678</td><td>Spoke de manutenção</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/insights/5-sinais-manutencao-preventiva-escavadeira/</code></td><td>1.437</td><td>Spoke de manutenção</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/insights/desgaste-material-rodante-escavadeira/</code></td><td>1.633</td><td>Spoke de manutenção</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/insights/maquina-parada-custos/</code></td><td>1.314</td><td>Spoke de manutenção</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/insights/suporte-tecnico-operacional/</code></td><td>1.138</td><td>Spoke de manutenção</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/insights/custo-hora-escavadeira-como-calcular/</code></td><td>1.632</td><td>Spoke de gestão</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/insights/comprar-ou-alugar-equipamento-pesado/</code></td><td>1.530</td><td>Spoke de gestão</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/insights/gestao-de-frota-maquinas-pesadas-indicadores/</code></td><td>1.595</td><td>Spoke de gestão</td><td><span class="badge badge-ok">No ar</span></td></tr>
+        <tr><td><code>/insights/seguranca-escavadeira-rops/</code></td><td>1.222</td><td>Satélite de tecnologia</td><td><span class="badge badge-ok">No ar</span></td></tr>
+      </table>
+      </div>
+
+      <div class="risk-box" style="border-left-color: var(--gold);">
+        <h4 style="color:#8b7a4a;">Qualidade da execução</h4>
+        <p>13 URLs críticas testadas com HTTP 200, um único H1 e sem erro de PHP. 20 links internos verificados, zero quebrados. Sitemap com os 9 posts e FAQPage schema em hub, produtos, categorias, peças, serviços e artigos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 KEYWORDS -->
+  <div class="card" id="keywords">
+    <div class="card-body">
+      <h2><span class="slide-num">11</span> Keywords × destino | o critério de cobertura</h2>
+      <p>Cada keyword monitorada tem um destino definido. Quando o destino não existe, a página entra no backlog de criação. Quando existe e não ranqueia, entra no backlog de profundidade.</p>
+
+      <div style="overflow-x:auto;">
+      <table>
+        <tr><th>Cluster</th><th>Keywords</th><th>Volume</th><th>Destino</th><th>Critério</th><th>Backlog</th></tr>
+        <tr><td>Comercial</td><td>8</td><td>16.130</td><td><code>/produtos/escavadeiras/</code></td><td>Pilar comercial</td><td><span class="badge badge-critico">Profundidade</span></td></tr>
+        <tr><td>Marca</td><td>4</td><td>4.550</td><td><code>/</code></td><td>Marca e distribuição</td><td><span class="badge badge-ok">Defender #2</span></td></tr>
+        <tr><td>Peças</td><td>7</td><td>560</td><td><code>/pecas/</code></td><td>Pilar de produto</td><td><span class="badge badge-alto">Famílias de peça</span></td></tr>
+        <tr><td>Tonelagem</td><td>4</td><td>240</td><td>Fichas ZX</td><td>Satélite de modelo</td><td><span class="badge badge-alto">Âncoras</span></td></tr>
+        <tr><td>Aplicação</td><td>5</td><td>180</td><td>Landing a criar</td><td>Vertical de uso</td><td><span class="badge badge-critico">Criar</span></td></tr>
+        <tr><td>Modelo</td><td>4</td><td>40</td><td>Fichas ZX</td><td>Ficha técnica</td><td><span class="badge badge-exec">301 + otimizar</span></td></tr>
+        <tr><td>Serviço</td><td>5</td><td>0</td><td><code>/servicos/</code></td><td>Conversão</td><td><span class="badge badge-alto">PMP</span></td></tr>
+        <tr><td>Comparativo</td><td>3</td><td>0</td><td>Artigo a criar</td><td>Decisão</td><td><span class="badge badge-medio">Criar</span></td></tr>
+      </table>
+      </div>
+
+      <h3>Como ler a tabela</h3>
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px;">
+        <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:16px;">
+          <div style="font-size:12px; font-weight:700; color:#15803d; text-transform:uppercase; letter-spacing:0.5px;">Destino existe e ranqueia</div>
+          <p style="font-size:13px; margin-top:8px; color:var(--gray-700);">Marca e peças. Ação é defender posição, atualizar conteúdo e ampliar links internos.</p>
+        </div>
+        <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:10px; padding:16px;">
+          <div style="font-size:12px; font-weight:700; color:#92400e; text-transform:uppercase; letter-spacing:0.5px;">Destino existe e não ranqueia</div>
+          <p style="font-size:13px; margin-top:8px; color:var(--gray-700);">Comercial, tonelagem e modelo. Ação é profundidade, consolidação de URL e reforço de malha.</p>
+        </div>
+        <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:16px;">
+          <div style="font-size:12px; font-weight:700; color:#1e40af; text-transform:uppercase; letter-spacing:0.5px;">Destino não existe</div>
+          <p style="font-size:13px; margin-top:8px; color:var(--gray-700);">Aplicação, serviço e comparativo. Ação é criar página com briefing e malha definidos antes de publicar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12 CHECKIN -->
+  <div class="card" id="checkin">
+    <div class="card-body">
+      <h2><span class="slide-num">12</span> Primeiro check-in | checklist de pontuação</h2>
+      <p>Critério objetivo para avaliar cada página do sistema no check-in. A página é considerada pronta quando atinge 80 dos 100 pontos.</p>
+
+      <div style="overflow-x:auto;">
+      <table>
+        <tr><th>Critério</th><th>Peso</th><th>Como medir</th><th>Meta</th></tr>
+        <tr><td>URL publicada e indexável</td><td>20</td><td>HTTP 200, canônica correta, fora de noindex</td><td>100% das páginas</td></tr>
+        <tr><td>Título, H1 e meta description únicos</td><td>15</td><td>Conferência manual + crawl</td><td>Zero duplicidade</td></tr>
+        <tr><td>Profundidade do pilar</td><td>15</td><td>Contagem de palavras e H2s</td><td>≥ 2.000 palavras</td></tr>
+        <tr><td>Schema válido</td><td>10</td><td>FAQPage / Product no validador</td><td>Zero erros</td></tr>
+        <tr><td>Malha interna</td><td>15</td><td>1 pilar + 2 irmãos + 1 comercial</td><td>100% dos artigos</td></tr>
+        <tr><td>Posição para keyword principal</td><td>15</td><td>Leitura semanal Data for SEO</td><td>Top 10</td></tr>
+        <tr><td>Core Web Vitals no mobile</td><td>10</td><td>PageSpeed / CrUX</td><td>Verde</td></tr>
+      </table>
+      </div>
+
+      <div class="callout">
+        <h4>Como o check-in é conduzido</h4>
+        <p>Primeiro os critérios técnicos, depois posição e profundidade. Página abaixo de 80 pontos não entra em expansão: entra em correção. O resultado de cada check-in alimenta o backlog da fase seguinte.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13 PLANO -->
+  <div class="card" id="plano">
+    <div class="card-body">
+      <h2><span class="slide-num">13</span> Plano de execução e formato de entrega</h2>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px; margin-bottom:24px;">
+        <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border:1px solid #bbf7d0; border-radius:12px; padding:20px;">
+          <div style="font-size:11px; font-weight:700; color:#15803d; text-transform:uppercase; letter-spacing:0.6px;">Fase 1 · Concluída</div>
+          <div style="font-size:17px; font-weight:800; color:var(--gray-900); margin:6px 0 10px;">Fundação técnica e clusters</div>
+          <ul style="font-size:13px; color:var(--gray-700); padding-left:16px; line-height:1.7;">
+            <li>19 URLs publicadas</li>
+            <li>9 artigos com schema</li>
+            <li>301 de slugs corrigidos</li>
+            <li>20 links internos validados</li>
+          </ul>
+          <div style="margin-top:12px;"><span class="badge badge-ok">21/10/2026</span></div>
+        </div>
+        <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); border:1px solid #fde68a; border-radius:12px; padding:20px;">
+          <div style="font-size:11px; font-weight:700; color:#92400e; text-transform:uppercase; letter-spacing:0.6px;">Fase 2 · Em execução</div>
+          <div style="font-size:17px; font-weight:800; color:var(--gray-900); margin:6px 0 10px;">Consolidação e profundidade</div>
+          <ul style="font-size:13px; color:var(--gray-700); padding-left:16px; line-height:1.7;">
+            <li>301 das URLs legadas</li>
+            <li>Hub para 2.000+ palavras</li>
+            <li>Fichas com aplicação e CTA</li>
+            <li>Core Web Vitals no mobile</li>
+          </ul>
+          <div style="margin-top:12px;"><span class="badge badge-exec">Out–Nov</span></div>
+        </div>
+        <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); border:1px solid #bfdbfe; border-radius:12px; padding:20px;">
+          <div style="font-size:11px; font-weight:700; color:#1e40af; text-transform:uppercase; letter-spacing:0.6px;">Fase 3 · Planejada</div>
+          <div style="font-size:17px; font-weight:800; color:var(--gray-900); margin:6px 0 10px;">Expansão e relatório</div>
+          <ul style="font-size:13px; color:var(--gray-700); padding-left:16px; line-height:1.7;">
+            <li>Landings de aplicação</li>
+            <li>PMP e telemetria</li>
+            <li>Comparativos de decisão</li>
+            <li>Relatório trimestral</li>
+          </ul>
+          <div style="margin-top:12px;"><span class="badge badge-info">Dez</span></div>
+        </div>
+      </div>
+
+      <h3>Formato operacional para acompanhamento</h3>
+      <div style="overflow-x:auto;">
+      <table>
+        <tr><th>Entrega</th><th>Frequência</th><th>Formato</th><th>Responsável</th></tr>
+        <tr><td>Leitura de posições e share of voice</td><td>Semanal</td><td>Dashboard interativo</td><td>SEO</td></tr>
+        <tr><td>Check-in de arquitetura e conteúdo</td><td>Quinzenal</td><td>Reunião + ata</td><td>SEO + cliente</td></tr>
+        <tr><td>Relatório consolidado</td><td>Mensal</td><td>PDF + dashboard</td><td>SEO</td></tr>
+        <tr><td>Revisão da lista de keywords</td><td>90 dias</td><td>Planilha + proposta</td><td>SEO</td></tr>
+      </table>
+      </div>
+
+      <div class="risk-box" style="border-left-color: var(--gold);">
+        <h4 style="color:#8b7a4a;">Próximo marco</h4>
+        <p>28/10: segunda leitura de posições. O objetivo é ver o efeito da consolidação 301 e da primeira onda de profundidade no hub. A partir daí, o ciclo passa a ser semanal para posição e quinzenal para arquitetura.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Brasland · Estratégia SEO Topic Clusters + Pillar Pages · Dados: Data for SEO · Outubro 2026
+</div>
+
+</body>
+</html>
