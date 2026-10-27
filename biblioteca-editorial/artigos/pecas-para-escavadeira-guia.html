@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="artigo.css">
+<style>
+/* TOC longo: 23 seções — mantém a navegação visível sem estourar a viewport */
+@media (min-width: 1025px){
+  .toc{max-height:calc(100vh - 130px);overflow-y:auto;overscroll-behavior:contain}
+  .toc::-webkit-scrollbar{width:6px}
+  .toc::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+}
+</style>
 </head>
 <body>
 <div class="progress" id="progress"></div>
@@ -62,6 +70,14 @@
     <a href="#instalacao">Instalação e garantia</a>
     <a href="#custo">O custo da parada</a>
     <a href="#erros">Erros comuns</a>
+    <a href="#sistemas">Falhas por sistema</a>
+    <a href="#kits">Kit de emergência</a>
+    <a href="#codigos">Códigos e compatibilidade</a>
+    <a href="#oleo">Análise de óleo</a>
+    <a href="#fornecedor">Como escolher fornecedor</a>
+    <a href="#indicadores">Indicadores de reposição</a>
+    <a href="#estoque-erros">Erros de estoque</a>
+    <a href="#seguranca">Peças de segurança</a>
     <a href="#checklist">Checklist de compra</a>
     <a href="#faq">Perguntas frequentes</a>
     <div class="toc-cta">Precisa confirmar a peça do seu modelo? <a href="https://brasland.com.br/contato/" target="_blank" rel="noopener">Envie o chassi e a foto para a Brasland.</a></div>
@@ -427,7 +443,7 @@ function onScroll(){
   const max = h.scrollHeight - h.clientHeight;
   bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
   let current = null;
-  for (const t of targets) { if (t.getBoundingClientRect().top <= 140) current = t.id; }
+  for (const t of targets) { if (t.getBoundingClientRect().top <= 220) current = t.id; }
   links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
 }
 document.addEventListener('scroll', onScroll, { passive: true });
