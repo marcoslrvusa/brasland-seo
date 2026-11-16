@@ -100,7 +100,7 @@
 <h3>Qual escavadeira comprar? 7 perguntas para decidir com segurança</h3><p>Defina aplicação, volume, solo, espaço, transporte, orçamento e suporte. Depois compare classes e condições de compra. A decisão segura nasce de critérios objetivos, não de preferência de marca.</p>
 <div class="art-meta"><span><b>695</b> palavras</span><span>4 min</span><span>Ler artigo →</span></div></a><div class="rv" data-slug="qual-escavadeira-comprar-7-perguntas"><div class="rv-label">Sua decisão</div><div class="rv-opts"><button type="button" class="rv-btn" data-v="aprovado">✓ Aprovar</button><button type="button" class="rv-btn" data-v="ajustar">✎ Ajustar</button><button type="button" class="rv-btn" data-v="rejeitado">✕ Rejeitar</button></div><textarea class="rv-note" rows="2" placeholder="Comentário (obrigatório para Ajustar ou Rejeitar)" aria-label="Comentário sobre o artigo"></textarea></div></article></div>
 <div class="rvbar" id="rvbar"><div class="cnt" id="rvcnt"></div><input id="rvname" type="text" placeholder="Seu nome" autocomplete="name" aria-label="Seu nome"><button type="button" class="ghost" id="rvclear">Limpar</button><button type="button" id="rvsend">Enviar revisão</button><div class="rvmsg" id="rvmsg" role="status"></div></div><div class="cta-box"><div><h3>Quer transformar essa biblioteca em tráfego?</h3><p>A estratégia liga cada artigo a um pilar, uma keyword e uma ação de conversão.</p></div><a href="../apresentacao/estrategia-pillar-clusters.html">Ver estratégia completa</a></div></div>
-<footer class="footer"><span>Brasland · Distribuidor oficial Hitachi no Brasil</span><span>Conteúdo editorial · outubro de 2026</span></footer>
+<div id="rvadmin" style="display:none;text-align:center;padding:14px 0 26px;font-size:12px;color:#8a8a8a"><button type="button" id="rvact" style="font:inherit;font-size:12px;border:1px dashed #bdb08f;background:transparent;color:#8b6a2a;border-radius:6px;padding:5px 12px;cursor:pointer">Ativar envio de e-mail (teste)</button><span id="rvactmsg" style="margin-left:10px"></span></div><footer class="footer"><span>Brasland · Distribuidor oficial Hitachi no Brasil</span><span>Conteúdo editorial · outubro de 2026</span></footer>
 <script>const b=[...document.querySelectorAll('.filter')],c=[...document.querySelectorAll('.art-card')];b.forEach(x=>x.onclick=()=>{b.forEach(y=>y.classList.remove('active'));x.classList.add('active');const f=x.dataset.f;c.forEach(k=>k.style.display=(f==='all'||k.dataset.cluster===f)?'':'none')})</script>
 
 <script>
@@ -145,5 +145,12 @@ document.getElementById('rvsend').onclick=function(){
  .catch(function(){btn.disabled=false;var mail="mailto:marcosluciano.rodrigues@v4company.com?subject="+encodeURIComponent("Brasland SEO · Revisão de artigos · "+nm)+"&body="+encodeURIComponent(d.text);
   show("Não foi possível enviar agora. <a href=\""+mail+"\">Enviar pelo seu e-mail</a> (o texto já vai preenchido).","bad")})};
 })();
+</script>
+<script>
+(function(){if(!/[?&]admin/.test(location.search))return;var w=document.getElementById('rvadmin'),b=document.getElementById('rvact'),m=document.getElementById('rvactmsg');w.style.display='block';
+b.onclick=function(){b.disabled=true;m.textContent='Enviando…';
+fetch("https://formsubmit.co/ajax/marcosluciano.rodrigues@v4company.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({_subject:"Brasland SEO · TESTE de ativação do envio",_template:"box",_captcha:"false",Mensagem:"Teste de ativação do painel de aprovação da biblioteca editorial.",Enviado_em:new Date().toLocaleString("pt-BR")})})
+.then(function(r){return r.json().catch(function(){return{}})}).then(function(j){b.disabled=false;m.textContent=(j.success==="true"||j.success===true)?'Enviado. Abra o e-mail do FormSubmit e clique em Activate. Se já ativou, o teste chegou na caixa de entrada.':'Resposta: '+(j.message||'verifique o e-mail')})
+.catch(function(){b.disabled=false;m.textContent='Falhou. Tente de novo.'})}})();
 </script>
 </body></html>
