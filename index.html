@@ -15,7 +15,7 @@
   --txt:#1A1613; --muted:#6D655C; --dim:#9B9389;
   --green:#2C7A4E; --green-050:#E7F3EB;
   --amber:#A2661A; --amber-050:#FBF0DC;
-  --blue:#2F6FD0;
+  --blue:#8B6A2A;
   --radius:12px;
   --shadow:0 1px 2px rgba(26,22,19,.05);
   --f:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -521,7 +521,7 @@ const fmt1 = n => (n==null)?'—':Number(n).toLocaleString('pt-BR',{minimumFract
 const MONTHS=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
 const mlab = p => MONTHS[+p.slice(4,6)-1]+'/'+p.slice(2,4);
 const PRIO={Alta:3,'Média':2,Baixa:1};
-const CC={'Comercial':'#DE4B31','Marca':'#C4861C','Peças':'#2F6FD0','Tonelagem':'#2A9468','Aplicação':'#7757C4','Modelo':'#C74A81','Serviço':'#2A8E9D','Comparativo':'#6E7683'};
+const CC={'Comercial':'#DE4B31','Marca':'#C4861C','Peças':'#8B6A2A','Tonelagem':'#2A9468','Aplicação':'#7757C4','Modelo':'#C74A81','Serviço':'#2A8E9D','Comparativo':'#6E7683'};
 const ccol = c => CC[c]||'#6E7683';
 const INTENT={'Transactional':'Transacional','Commercial':'Comercial','Informational':'Informacional','Navigational':'Navegacional','Other':''};
 const itr = i => INTENT[i]!==undefined?(INTENT[i]||'—'):(i||'—');
@@ -771,7 +771,7 @@ function renderOverview(){
   const none=Math.max(ks.length-top100,0), band100=Math.max(top100-top20,0), band20=Math.max(top20-top10,0), band10=Math.max(top10-top3,0);
   const segs=[
     {label:'Fora do Top 100',value:none,color:'#DCD6CC'},
-    {label:'21º – 100º',value:band100,color:'#2F6FD0'},
+    {label:'21º – 100º',value:band100,color:'#8B6A2A'},
     {label:'11º – 20º',value:band20,color:'#7757C4'},
     {label:'4º – 10º',value:band10,color:'#D08C2E'},
     {label:'Top 3',value:top3,color:'#3FA96A'}
@@ -897,7 +897,7 @@ function renderCompetition(){
   const order=['brasland.com.br','casece.com','cat.com','deere.com.br','komatsu.com.br','volvoce.com'];
   const list=order.map(d=>({d,...D.domains[d]})).filter(x=>x.d);
   const totalSerp=Object.values(D.serps).reduce((a,b)=>a+b.length,0);
-  const kwItems=list.map(x=>({label:x.d,value:x.organic||0,display:fmt(x.organic||0),color:x.d==='brasland.com.br'?'#E31919':'#2F6FD0'}));
+  const kwItems=list.map(x=>({label:x.d,value:x.organic||0,display:fmt(x.organic||0),color:x.d==='brasland.com.br'?'#E31919':'#8B6A2A'}));
   $('#card-comp-kw').innerHTML=`<div class="cardhead"><div><h3>Keywords orgânicas</h3><div class="sub">Estimativa Data for SEO</div></div></div>${hbars(kwItems,{color:'#D7D1C6'})}
     <div class="hint" style="margin-top:12px">Brasland está em <b style="color:var(--red-600)">0</b>: o domínio ainda não tem histórico orgânico indexado.</div>`;
   const trItems=list.map(x=>({label:x.d,value:x.traffic||0,display:fmt(x.traffic||0),color:x.d==='brasland.com.br'?'#E31919':'#7757C4'}));
@@ -912,7 +912,7 @@ function renderCompetition(){
       <td class="num">${x.domainAuthority??'—'}</td><td class="num">${fmt(x.organic)}</td><td class="num">${fmt(x.traffic)}</td>
       <td class="num">${fmt(x.refDomains)}</td><td class="num">${fmt(x.backlinks)}</td><td class="num">${hits}</td></tr>`;
     }).join('')}</tbody></table></div>`;
-  const freq=D.serpFreq.filter(f=>!['google.com','youtube.com'].includes(f[0])).slice(0,10).map(f=>({label:f[0],value:f[1],display:f[1]+'×',color:'#2F6FD0'}));
+  const freq=D.serpFreq.filter(f=>!['google.com','youtube.com'].includes(f[0])).slice(0,10).map(f=>({label:f[0],value:f[1],display:f[1]+'×',color:'#8B6A2A'}));
   $('#card-serpfreq').innerHTML=`<div class="cardhead"><div><h3>Domínios mais frequentes</h3><div class="sub">Aparições no Top 8 das ${Object.keys(D.serps).length} SERPs analisadas</div></div></div>${freq.length?hbars(freq,{max:Math.max(...freq.map(f=>f.value))}):emptyBox('Sem SERPs coletadas')}`;
   $('#card-comp-notes').innerHTML=`<div class="cardhead"><div><h3>Leitura competitiva</h3><div class="sub">o que os números dizem</div></div></div>
     <div style="display:flex;flex-direction:column;gap:10px;font-size:11.5px;color:var(--muted);line-height:1.7">
@@ -937,7 +937,7 @@ function renderSerp(){
       <td style="font-family:var(--m);font-size:10.5px">${esc(r.domain)}</td>
       <td style="max-width:420px;overflow:hidden;text-overflow:ellipsis;color:var(--muted)">${esc(r.title||r.url||'—')}</td>
       <td class="num">${r.da??'—'}</td><td class="num">${fmt(r.clicks)}</td>
-      <td><div class="bar" style="grid-template-columns:1fr"><span class="track"><span class="fill" style="width:${Math.max((r.clicks||0)/maxC*100,2)}%;background:${r.domain==='brasland.com.br'?'var(--red)':'#2F6FD0'}"></span></span></div></td>
+      <td><div class="bar" style="grid-template-columns:1fr"><span class="track"><span class="fill" style="width:${Math.max((r.clicks||0)/maxC*100,2)}%;background:${r.domain==='brasland.com.br'?'var(--red)':'#8B6A2A'}"></span></span></div></td>
     </tr>`).join('')}</tbody></table></div>
     <div class="hint" style="padding:10px 16px 14px">Cliques são a estimativa do Data for SEO para o resultado, não tráfego real do concorrente.</div>`;
 }

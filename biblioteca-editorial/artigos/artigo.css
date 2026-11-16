@@ -576,3 +576,9 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: now
   article h2 { page-break-after: avoid; }
   .table-wrap, .callout, .cta-box { page-break-inside: avoid; }
 }
+
+.brand-logos{gap:14px}.brand-logos img{display:block}.brand-logos .lg-v4{height:30px;width:auto}.brand-logos .lg-bl{height:19px;width:auto}.brand-logos .lg-x{color:#b08a3e;font-size:15px;font-weight:300}.brand-logos .lg-div{width:1px;height:26px;background:#e4d9bf;margin:0 4px}.brand-logos .lg-lab{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:#8b6a2a;line-height:1.2}
+.header,.site-header{background:linear-gradient(180deg,#fffdf8,#f7f1e4)!important;border-bottom:1px solid #e4d9bf!important}
+@media(max-width:640px){.brand-logos{gap:9px}.brand-logos .lg-v4{height:22px}.brand-logos .lg-bl{height:14px}.brand-logos .lg-div,.brand-logos .lg-lab{display:none}}
+
+.header-links a.cta{color:#fff}
