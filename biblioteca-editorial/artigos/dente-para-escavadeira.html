@@ -64,4 +64,5 @@
 <a class="related-card" href="../index.html"><small>Biblioteca editorial</small><strong>Ver todos os artigos e pautas dos 8 clusters</strong></a></div></div></section>
 <footer class="site-footer"><div class="footer-inner"><span>Brasland · Distribuidor oficial Hitachi no Brasil</span><span><a href="https://brasland.com.br/" target="_blank" rel="noopener">brasland.com.br</a> · Conteúdo editorial</span></div></footer>
 <script>const bar=document.getElementById('progress');const links=[...document.querySelectorAll('.toc a[href^="#"]')];const targets=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);function onScroll(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';let current=null;for(const t of targets){if(t.getBoundingClientRect().top<=140)current=t.id;}links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));}document.addEventListener('scroll',onScroll,{passive:true});onScroll();</script>
+<script src="aprovacao.js"></script>
 </body></html>
